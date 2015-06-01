@@ -1,0 +1,19 @@
+The enviornment model of procedure application
+can be summarized by two rules:
+
+- A procedure object is applied to a set of
+  arguments by:
+  - Constructing a frame
+  - Binding the formal parameters of the
+    procedure to the arguments of the call
+  - Evaluating the body of the procedure in
+    context of the new enviornment contrsucted.
+  The new frame has as its enclosing enviornment
+  the enviornment part of the proedure object
+  being applied.
+
+- A procedure is creased by evalutaing a lambda
+  expression relative to a given enviornment.
+  The resulting procedure object is a pair consisting
+  of the text of the lambda expression and a pointer
+  to the enviornment in which the procedure was created.

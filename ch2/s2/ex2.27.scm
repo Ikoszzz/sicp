@@ -1,0 +1,22 @@
+(define (my-reverse items)
+    (define (my-reverse-iter inputs answer)
+        (if (null? inputs)
+            answer
+            (my-reverse-iter (cdr inputs)
+                             (cons (car inputs)
+                                   answer))))
+    (my-reverse-iter items ())) 
+
+(define (deep-reverse items)
+    (define (deep-reverse-iter inputs answer)
+        (cond ((null? inputs)
+               answer)
+              ((list? (car inputs))
+               (deep-reverse-iter (cdr inputs)
+                                  (cons (my-reverse (car inputs))
+                                        answer)))
+              (else deep-reverse-iter (cdr inputs)
+                                      (cons (car inputs)
+                                            answer))))
+    (deep-reverse-iter items ()))
+               
